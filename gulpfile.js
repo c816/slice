@@ -6,5 +6,5 @@ elixir.config.notifications = false;
 elixir.config.publicPath = '';
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.sass('style.scss');
 });
