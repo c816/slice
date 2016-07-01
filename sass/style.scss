@@ -1,1 +1,616 @@
+/**
+ * Table of Contents
+ *
+ * I. Variables
+ * II. Imports
+ * III. Global declarations
+ * IV. Global components
+ * IV. Home page components
+ * V. Inside page components
+ * VI. Extendable classes
+ * VII. Miscelaneous
+ */
+
+
+/**
+ * I. Variables
+ */
+
+$brand-danger: #5a0124;
+$brand-danger-light: #751d37;
+
+$enable-rounded: false;
+
+$font-family-sans-serif: 'industry';
+$font-family-serif: 'trajan-pro-3';
+
+$gray: #717073;
+
+
+/**
+ * II. Imports
+ */
+
 @import 'node_modules/bootstrap/scss/bootstrap';
+
+
+/**
+ * III. Global declarations
+ */
+
+html, body {
+    height: 100%;
+}
+
+/**
+ * IV. Global components
+ */
+
+ .footer {
+     @extend .row;
+
+     &__border {
+         @extend .striped-border;
+     }
+
+     &__main {
+         @extend .text-xs-center;
+
+         color: white;
+         padding-bottom: ($spacer * 1.5);
+         padding-top: ($spacer * 1.5);
+
+         &-link {
+             @extend .list-inline-item;
+
+             position: relative;
+
+             &:not(:last-of-type) {
+                 &:after {
+                     color: $brand-danger;
+                     content: '|';
+                     padding-left: ($spacer / 2);
+                 }
+             }
+         }
+
+         &-links {
+             @extend .list-inline;
+         }
+
+         a {
+             color: white;
+
+             &:hover {
+                 color: $brand-danger;
+                 text-decoration: none;
+             }
+         }
+     }
+
+     &__wrapper {
+         background-color: $gray;
+     }
+ }
+
+
+/**
+ * V. Home page components
+ */
+
+.splash {
+    background-attachment: fixed;
+    background-image: url('../img/splash-bg.jpg');
+    background-position: center top;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__border {
+        @extend .striped-border;
+    }
+
+    &__container {
+        @extend .container;
+
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - #{$spacer});
+    }
+
+    &__copy {
+        @extend .row;
+
+        margin-bottom: auto;
+        margin-top: auto;
+
+        &-heading {
+            @extend .col-md-12;
+            @extend .text-xs-center;
+
+            color: white;
+        }
+
+        &-list {
+            @extend .list-inline;
+        }
+
+        &-list-item {
+            @extend .list-inline-item;
+
+            font-family: $font-family-serif;
+
+            @include media-breakpoint-down(md) {
+                clear: both;
+                display: inline-block;
+                margin: 0;
+            };
+
+            @include media-breakpoint-up(xs) {
+                font-size: $font-size-h1;
+            };
+
+            @include media-breakpoint-up(lg) {
+                &:not(:last-child) {
+                    margin-right: $spacer;
+                }
+            };
+
+            @include media-breakpoint-up(xl) {
+                font-size: $display4-size;
+            };
+
+            img {
+                height: ($spacer * 3);
+            }
+        }
+
+        &-star {
+            @include media-breakpoint-up(xs) {
+                &:first-child {
+                    margin-right: ($spacer / 2);
+                }
+
+                &:last-child {
+                    margin-left: ($spacer / 2);
+                }
+            };
+
+            @include media-breakpoint-up(lg) {
+                &:first-child {
+                    margin-right: $spacer;
+                }
+
+                &:last-child {
+                    margin-left: $spacer;
+                }
+            };
+        }
+
+        &-subheading {
+            @extend .col-md-12;
+            @extend .text-xs-center;
+
+            color: white;
+            text-transform: uppercase;
+
+            @include media-breakpoint-up(xs) {
+                font-size: $font-size-h4;
+                letter-spacing: ($spacer / 2);
+            };
+
+            @include media-breakpoint-up(lg) {
+                font-size: $font-size-h3;
+                letter-spacing: $spacer;
+            };
+        }
+    }
+
+    &__header {
+        @extend .row;
+
+        &-logo {
+            @extend .col-xs-3;
+            @extend .col-md-2;
+
+            img {
+                @extend .img-fluid;
+            }
+        }
+
+        &-button {
+            @extend .col-md-10;
+            @extend .text-xs-right;
+
+            padding-top: ($spacer * 2);
+
+            a {
+                @extend .nav-button;
+            }
+        }
+    }
+
+    &__social {
+        @extend .row;
+        @extend .text-xs-center;
+
+        @include media-breakpoint-up(xs) {
+            margin-bottom: $spacer;
+        };
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: ($spacer * 2);
+        };
+
+        &-link {
+            @extend .social-link;
+
+            a {
+                @include media-breakpoint-up(xs) {
+                    height: ($spacer * 3);
+                    line-height: ($spacer * 3.25);
+                    width: ($spacer * 3);
+                };
+
+                @include media-breakpoint-up(lg) {
+                    height: ($spacer * 4);
+                    line-height: ($spacer * 4.5);
+                    width: ($spacer * 4);
+                };
+            }
+        }
+
+        &-links {
+            @extend .social-links;
+        }
+    }
+}
+
+.home {
+    @extend .container;
+
+    &__blog {
+        @extend .col-md-6;
+
+        &-button {
+            @extend .m-b-1;
+
+            border-bottom: 2px solid $brand-danger;
+            border-top: 2px solid $brand-danger;
+            color: $brand-danger;
+            padding: ($spacer / 2) ($spacer / 4);
+            text-transform: uppercase;
+
+            &:hover {
+                border-color: $brand-danger-light;
+                color: $brand-danger-light;
+                text-decoration: none;
+            }
+        }
+
+        &-heading {
+            @extend .text-xs-center;
+            @extend .m-b-1;
+
+            font-size: $font-size-h4;
+            font-weight: 600;
+        }
+
+        &-item {
+            @extend .styled-list-item;
+        }
+
+        &-link {
+            @extend .styled-list-link;
+        }
+
+        &-list {
+            @extend .styled-list;
+        }
+    }
+
+    &__button {
+        @extend .col-md-3;
+        @extend .m-b-1;
+
+        &-link {
+            @extend .btn;
+            @extend .btn-block;
+            @extend .btn-danger;
+
+            padding-bottom: $spacer;
+            padding-top: $spacer;
+            text-transform: uppercase;
+        }
+    }
+
+    &__buttons {
+        @extend .m-b-0;
+        @extend .row;
+
+        padding-bottom: ($spacer * 1);
+        padding-top: ($spacer * 2);
+    }
+
+    &__content {
+        @extend .col-md-12;
+        @extend .text-xs-center;
+
+        &-heading {
+            @extend .m-b-1;
+
+            font-size: $font-size-h3;
+            font-weight: 600;
+        }
+    }
+
+    &__main {
+        @extend .m-b-0;
+        @extend .row;
+
+        padding-bottom: ($spacer * 3);
+        padding-top: ($spacer * 2);
+    }
+
+    &__photos {
+        @extend .col-md-6;
+
+        img {
+            @extend .img-fluid;
+            @extend .img-thumbnail;
+            @extend .m-b-1;
+        }
+    }
+
+    &__star {
+        @extend .col-md-12;
+        @extend .m-b-0;
+        @extend .text-xs-center;
+
+        padding-bottom: ($spacer * 3);
+        padding-top: ($spacer * 1.5);
+        position: relative;
+
+        &:after {
+            background-color: $brand-danger;
+            content: '';
+            display: block;
+            height: 4px;
+            position: absolute;
+                right: $spacer;
+                top: calc(40% - 2px);
+            width: calc(50% - (#{$spacer} * 3));
+            z-index: -1;
+        }
+
+        &:before {
+            background-color: $brand-danger;
+            content: '';
+            display: block;
+            height: 4px;
+            position: absolute;
+                left: $spacer;
+                top: calc(40% - 2px);
+            width: calc(50% - (#{$spacer} * 3));
+            z-index: -1;
+        }
+
+        img {
+            max-height: ($spacer * 4);
+        }
+    }
+}
+
+
+/**
+ * VI. Inside page components
+ */
+
+.header {
+    @extend .row;
+
+    &__button {
+        @extend .col-xs-9;
+        @extend .col-md-4;
+        @extend .text-xs-right;
+
+        padding-bottom: $spacer;
+        padding-top: $spacer;
+
+        &-link {
+            @extend .nav-button;
+
+            line-height: ($spacer * 2.125);
+        }
+    }
+
+    &__logo {
+        @extend .col-xs-3;
+        @extend .col-md-4;
+
+        position: relative;
+
+        img {
+            @extend .img-fluid;
+
+            position: absolute;
+                left: 0;
+                top: 0;
+        }
+    }
+
+    &__social {
+        @extend .col-md-4;
+        @extend .hidden-sm-down;
+        @extend .p-a-1;
+        @extend .text-md-center;
+
+        &-link {
+            @extend .social-link;
+
+            a {
+                @include media-breakpoint-up(md) {
+                    font-size: $font-size-base !important;
+                    height: ($spacer * 2);
+                    line-height: ($spacer * 2.125);
+                    width: ($spacer * 2);
+                };
+            }
+
+            &s {
+                @extend .social-links;
+
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__wrapper {
+        background-color: $gray;
+        margin-bottom: ($spacer * 3);
+    }
+}
+
+.content {
+    @extend .col-md-9;
+
+    h1 {
+        @extend .m-b-1;
+
+        color: $brand-danger;
+        font-size: $font-size-h2;
+        font-weight: 700;
+    }
+
+    ul {
+        @extend .styled-list;
+
+        li {
+            @extend .styled-list-item;
+
+            a {
+                @extend .styled-list-link;
+            }
+        }
+    }
+}
+
+.sidebar {
+    @extend .col-md-3;
+
+    &__button {
+        @extend .m-b-1;
+
+        &-link {
+            @extend .text-xs-center;
+
+            background-color: $brand-danger;
+            color: white;
+            display: block;
+            font-size: $font-size-lg;
+            padding: ($spacer * 2) $spacer;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: $brand-danger-light;
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__buttons {
+        @extend .list-unstyled;
+    }
+}
+
+
+/**
+ * VI. Extendable Classes
+ */
+
+.nav-button {
+    color: white;
+    font-size: $font-size-h5;
+    text-transform: uppercase;
+
+    &:hover {
+        color: $brand-danger;
+        text-decoration: none;
+    }
+
+    span {
+        @extend .hidden-sm-down;
+    }
+}
+
+.social-link {
+    @extend .list-inline-item;
+
+    &:not(:last-child) {
+        margin-right: $spacer;
+    }
+
+    a {
+        background-color: $brand-danger;
+        border-radius: 50%;
+        color: white;
+        display: block;
+        font-size: $font-size-h3;
+        text-align: center;
+
+        &:hover {
+            background-color: $brand-danger-light;
+            text-decoration: none;
+        }
+    }
+
+    &s {
+        @extend .list-inline;
+    }
+}
+
+.striped-border {
+    background-image: repeating-linear-gradient(
+        90deg, $brand-danger-light, $brand-danger-light ($spacer * 3), $brand-danger ($spacer * 3), $brand-danger ($spacer * 6)
+    );
+    height: $spacer;
+    width: 100%;
+}
+
+.styled-list {
+    @extend .list-unstyled;
+    @extend .m-b-0;
+
+    padding-bottom: $spacer;
+
+    &-item {
+        @extend .m-b-1;
+
+        list-style: none;
+        padding-left: ($spacer * 1.5);
+        position: relative;
+
+        &:before {
+            color: $brand-danger;
+            content: '\f0c8';
+            display: block;
+            font-family: FontAwesome;
+            font-size: $font-size-sm;
+            position: absolute;
+                left: 0;
+                top: 0;
+            vertical-align: top;
+        }
+    }
+
+    &-link {
+        color: $brand-danger;
+
+        &:hover {
+            color: $brand-danger-light;
+            text-decoration: none;
+        }
+    }
+}
