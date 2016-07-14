@@ -1,1 +1,330 @@
+$body-color: black;
+
+$brand-danger: #621300;
+$brand-primary: #001f2f;
+
+$enable-flex: true;
+
+$font-family-serif: 'freight-display-pro', Helvetica, Georgia, sans-serif;
+$font-family-base: $font-family-serif;
+
+$font-size-root: 16px;
+
+$trajan: 'trajan-pro-3', $font-family-serif;
+
 @import 'node_modules/bootstrap/scss/bootstrap';
+
+html, body {
+    height: 100%;
+}
+
+.splash {
+    background-attachment: fixed;
+    background-color: black;
+    background-image: url('/img/splash-bg-tmp.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    @extend .row;
+
+    &__logo {
+        @extend .col-md-6;
+    }
+
+    &__phone {
+        @extend .col-md-6;
+        @extend .text-sm-right;
+        @extend .text-xs-center;
+
+        color: white;
+        font-family: $trajan;
+        font-size: $font-size-lg;
+        line-height: 50px;
+
+        a {
+            color: white;
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-1;
+        @extend .p-t-1;
+
+        background-color: $brand-primary;
+    }
+}
+
+.overlay {
+    @extend .p-b-1;
+    @extend .p-t-1;
+    @extend .row;
+
+    &__button {
+        @extend .btn;
+        @extend .btn-block;
+        @extend .btn-danger;
+        @extend .btn-lg;
+
+        background-color: rgba($brand-danger, 0.75);
+        border: 1px solid $brand-danger;
+        border-radius: ($spacer * 1.5);
+        font-family: $font-family-sans-serif;
+        font-size: $font-size-sm;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &__icon {
+        @extend .col-md-4;
+        @extend .p-b-1;
+        @extend .p-t-1;
+        @extend .text-xs-center;
+
+        color: white;
+    }
+
+    &__text {
+        @extend .col-md-12;
+        @extend .p-b-1;
+        @extend .p-b-2;
+        @extend .text-xs-center;
+
+        color: white;
+        font-family: $trajan;
+
+        &-heading {
+            font-size: $font-size-h3;
+        }
+
+        &-subheading {
+            font-size: $font-size-h2;
+            text-transform: uppercase;
+        }
+    }
+
+    &__wrapper {
+        margin-top: auto;
+    }
+}
+
+.bio {
+    @extend .row;
+
+    &__content {
+        @extend .col-md-7;
+
+        &-body {
+            font-size: $font-size-lg;
+            line-height: 1.75;
+
+            a {
+                color: $brand-danger;
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &-heading {
+            @extend .p-b-1;
+
+            font-size: $font-size-h2;
+        }
+    }
+
+    &__photo {
+        @extend .col-md-3;
+        @extend .col-md-offset-1;
+
+        img {
+            @extend .img-fluid;
+        }
+    }
+
+    &__wrapper {
+        background-color: $gray-lightest;
+        padding-bottom: ($spacer * 2);
+        padding-top: ($spacer * 2);
+
+        border-bottom: 1px solid $gray-lighter;
+    }
+}
+
+.home-content {
+    @extend .row;
+
+    &__body {
+        @extend .col-md-12;
+        @extend .p-b-1;
+        @extend .text-xs-center;
+
+        font-size: $font-size-lg;
+        line-height: 1.75;
+    }
+
+    &__heading {
+        @extend .col-md-12;
+        @extend .p-b-1;
+        @extend .text-xs-center;
+
+        h1 {
+            font-family: $trajan;
+        }
+    }
+
+    &__list {
+        @extend .list-unstyled;
+        @extend .row;
+
+        &-item {
+            @extend .col-md-4;
+            @extend .p-b-1;
+            @extend .text-xs-center;
+
+            font-size: $font-size-h4;
+            position: relative;
+
+            &:before {
+                content: '□';
+                font-size: $font-size-sm;
+                padding-right: ($spacer / 4);
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &__wrapper {
+        padding-bottom: ($spacer * 2);
+        padding-top: ($spacer * 2);
+    }
+}
+
+.home-quote {
+    @extend .row;
+
+    &__body {
+        @extend .col-xs-12;
+        @extend .p-b-1;
+        @extend .p-t-1;
+        @extend .text-xs-center;
+
+        color: white;
+        font-size: $font-size-h4;
+        line-height: 1.75;
+    }
+
+    &__logo {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+    }
+
+    &__source {
+        @extend .col-xs-12;
+        @extend .p-b-1;
+        @extend .text-xs-center;
+
+        color: white;
+        font-size: $font-size-h4;
+    }
+
+    &__stars {
+        @extend .col-xs-12;
+        @extend .p-b-1;
+        @extend .text-xs-center;
+
+        color: yellow;
+        font-size: $font-size-h3;
+    }
+
+    &__wrapper {
+        background-color: $brand-primary;
+        padding-bottom: ($spacer * 2);
+        padding-top: ($spacer * 2);
+    }
+}
+
+.home-map {
+    @extend .row;
+
+    padding-top: ($spacer * 3);
+
+    &__inner {
+        position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+    }
+
+    &__key {
+        @extend .list-unstyled;
+        @extend .m-b-0;
+        @extend .text-xs-center;
+
+        background-color: rgba($brand-primary, .75);
+        color: white;
+        padding: ($spacer * 2) $spacer;
+
+        &-item {
+            //
+
+            &.\--heading {
+                @extend .m-b-1;
+
+                font-size: $font-size-h4;
+            }
+        }
+    }
+
+    &__overlay {
+        @extend .col-md-4;
+    }
+
+    &__wrapper {
+        background-image: url('../img/home-map.jpg');
+        background-position: center center wat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 33.33%;
+        }
+    }
+}
+
+.footer {
+    @extend .row;
+
+    &__content {
+        @extend .col-md-12;
+        @extend .text-xs-center;
+
+        color: white;
+        line-height: 1.75;
+
+        a {
+            color: white;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+
+    &__wrapper {
+        background-color: $brand-primary;
+        padding-bottom: ($spacer * 2);
+        padding-top: ($spacer * 2);
+    }
+}
