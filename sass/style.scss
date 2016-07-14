@@ -1,1 +1,376 @@
+$brand-primary: #3A608D;
+$brand-primary-dark: #2E4C70;
+$brand-warning: #F8991D;
+
+$enable-flex: true;
+$enable-rounded: false;
+
+$font-family-sans-serif: 'museo-sans', sans-serif;
+
+$headings-font-weight: 300;
+
 @import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    font-weight: 300;
+}
+
+.Header {
+    @extend .row;
+
+    &__list {
+        @extend .col-md-4;
+        @extend .col-xs-12;
+        @extend .list-unstyled;
+        @extend .p-b-1;
+        @extend .p-t-1;
+        @extend .text-xs-center;
+
+        color: $brand-primary;
+
+        &-item {
+            //
+
+            &.\--heading {
+                font-size: $font-size-h5;
+                text-transform: uppercase;
+            }
+
+            &.\--phone {
+                font-size: $font-size-h3;
+            }
+        }
+    }
+
+    &__logo {
+        @extend .col-md-8;
+        @extend .col-xs-12;
+        @extend .p-a-1;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__wrapper {
+        border-top: 5px solid $brand-primary;
+    }
+}
+
+.Nav {
+    @extend .row;
+
+    &__link {
+        color: white;
+
+        &:hover {
+            color: $brand-primary;
+            text-decoration: none;
+        }
+    }
+
+    &__list {
+        @extend .col-xs-12;
+        @extend .list-inline;
+        @extend .m-b-0;
+        @extend .text-xs-center;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-1;
+        @extend .p-t-1;
+
+        background-color: $brand-warning;
+    }
+}
+
+.MainGraphic {
+    display: flex;
+    position: absolute;
+        bottom: $spacer;
+        left: $spacer;
+        right: $spacer;
+        top: $spacer;
+
+    &__overlay {
+        margin: auto auto ($spacer * 2) auto;
+        max-width: 100%;
+    }
+
+    &__wrapper {
+        background-image: url('/img/main-graphic-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 40%;
+        }
+    }
+}
+
+.Icon {
+    @extend .col-xs-4;
+    @extend .text-xs-center;
+
+    margin-bottom: auto;
+    margin-top: auto;
+
+    &s {
+        @extend .row;
+
+        &__wrapper {
+            @extend .p-b-2;
+            @extend .p-t-2;
+
+            background-color: $brand-primary;
+            border-bottom: 1px solid $brand-primary-dark;
+            border-top: 1px solid $brand-primary-dark;
+        }
+    }
+
+    img {
+        max-width: 67%;
+    }
+}
+
+.HomeContent {
+    @extend .row;
+
+    &__box {
+        @extend .col-md-4;
+        @extend .col-xs-12;
+        @extend .p-b-2;
+        @extend .p-t-2;
+
+        position: relative;
+
+        &-button {
+            @extend .p-a-1;
+            @extend .text-xs-center;
+
+            background-color: $brand-warning;
+            color: white;
+            display: block;
+            line-height: 1;
+            position: absolute;
+                left: ($spacer * 2);
+                top: 0;
+            text-transform: uppercase;
+            width: calc(100% - (#{$spacer} * 4));
+            z-index: 5;
+
+            &:hover {
+                background-color: $brand-primary;
+                color: white;
+                text-decoration: none;
+            }
+        }
+
+        &-image {
+            @extend .img-fluid;
+            border: 2px solid $brand-warning;
+        }
+    }
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        h1 {
+            @extend .m-b-1;
+            color: $brand-primary;
+            position: relative;
+
+            &:after {
+                background-image: url('/img/logo-h1.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                content: '';
+                display: block;
+                height: 60px;
+                margin: $spacer auto;
+                width: 92px;
+            }
+        }
+
+        p:last-child {
+            @extend .m-b-3;
+            @extend .p-b-3;
+
+            border-bottom: 1px solid $brand-warning;
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-3;
+        @extend .p-t-3;
+    }
+}
+
+.HomeTestimonial {
+    @extend .row;
+
+    font-size: $font-size-h3;
+    color: white;
+    line-height: 2;
+    text-shadow: 1px;
+
+    &__quote {
+        @extend .col-md-6;
+        @extend .col-md-offset-3;
+        @extend .text-xs-center;
+
+        font-style: italic;
+    }
+
+    &__source {
+        @extend .col-md-6;
+        @extend .col-md-offset-3;
+        @extend .text-xs-center;
+    }
+
+    &__wrapper {
+        @extend .p-b-3;
+        @extend .p-t-3;
+
+        @include media-breakpoint-up(md) {
+            background-attachment: fixed;
+            background-image: url('/img/home-testimonial-bg.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+        };
+
+        background-color: $brand-primary;
+        border-bottom: 1px solid $brand-primary-dark;
+        border-top: 1px solid $brand-primary-dark;
+    }
+}
+
+.HomeLocation {
+    @extend .col-md-4;
+
+    &__button {
+        @extend .btn;
+        @extend .btn-block;
+        @extend .btn-lg;
+        @extend .btn-primary;
+        @extend .m-b-1;
+    }
+
+    &__list {
+        @extend .list-unstyled;
+        @extend .text-xs-center;
+
+        color: $brand-primary;
+        font-size: $font-size-lg;
+    }
+
+    &__map {
+        position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+
+        &-wrapper {
+            border: 1px solid $brand-primary;
+            margin-bottom: ($spacer / 2);
+            position: relative;
+            width: 100%;
+
+            &:before {
+                content: '';
+                display: block;
+                padding-top: 80%;
+            }
+        }
+    }
+
+    &s {
+        @extend .p-b-3;
+        @extend .p-t-3;
+        @extend .row;
+
+        &__header {
+            @extend .col-xs-12;
+            @extend .m-b-3;
+            @extend .text-xs-center;
+
+            color: $brand-primary;
+            font-size: $font-size-h3;
+            position: relative;
+
+            &:after {
+                background-image: url('/img/home-locations.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                content: '';
+                display: block;
+                height: 20px;
+                margin: 0 auto $spacer auto;
+                width: 40px;
+            }
+        }
+    }
+}
+
+.Footer {
+    @extend .row;
+
+    &__list {
+        @extend .col-xs-12;
+        @extend .list-inline;
+        @extend .text-xs-center;
+
+        color: white;
+
+        &-item {
+            @extend .list-inline-item;
+
+            position: relative;
+
+            &:not(:last-of-type) {
+                &:after {
+                    content: '|';
+                    padding-left: ($spacer / 2);
+                }
+            }
+        }
+    }
+
+    &__logo {
+        @extend .col-md-12;
+        @extend .text-xs-center;
+
+        padding: 0 $spacer ($spacer * 3) $spacer;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-3;
+        @extend .p-t-3;
+
+        background-color: $brand-primary;
+        border-top: 1px solid $brand-primary-dark;
+    }
+
+    a {
+        color: white;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
