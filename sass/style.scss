@@ -1,1 +1,330 @@
+$font-family-sans-serif: 'proxima-nova', sans-serif;
+$gray-dark: black;
+$link-hover-decoration: none;
+$list-inline-padding: 10px;
+
 @import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    &.\--home {
+        background-attachment: fixed;
+        background-image: url('/img/home-bg.jpg');
+        background-position: center 36px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.header {
+    @extend .row;
+
+    &__link {
+        color: $gray-dark;
+    }
+
+    &__list {
+        @extend .list-inline;
+        @extend .m-b-0;
+
+        &-item {
+            @extend .list-inline-item;
+
+            line-height: 37px;
+            text-transform: uppercase;
+        }
+    }
+
+    &__logo {
+        @extend .col-md-4;
+        @extend .text-md-left;
+        @extend .text-xs-center;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__nav {
+        @extend .col-md-8;
+        @extend .text-xs-right;
+    }
+
+    &__wrapper {
+        @extend .container-fluid;
+        @extend .p-b-1;
+        @extend .p-t-1;
+
+        background-color: white;
+    }
+}
+
+.top-nav {
+    @extend .row;
+
+    &__contact {
+        @extend .col-xs-6;
+    }
+
+    &__list {
+        @extend .list-inline;
+        @extend .m-b-0;
+
+        &-item {
+            @extend .list-inline-item;
+
+            text-transform: uppercase;
+        }
+    }
+
+    &__social {
+        @extend .col-xs-6;
+        @extend .text-xs-right;
+    }
+
+    &__wrapper {
+        @extend .container-fluid;
+        @extend .p-b-1;
+        @extend .p-t-1;
+
+        background-color: $gray-dark;
+        color: white;
+        position: sticky;
+            top: 0;
+        z-index: $zindex-navbar;
+    }
+}
+
+.image-layer {
+    background-attachment: fixed;
+    background-image: url('http://placehold.it/1600x800');
+    background-position: center top;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+
+    &:before {
+        content: '';
+        display: block;
+        padding-top: 25%;
+    }
+
+    &.\--main-graphic {
+        background-color: transparent;
+        background-image: none;
+
+        &:before {
+            padding-top: 30%;
+        }
+    }
+}
+
+.home-box {
+    @extend .col-md-6;
+    @extend .col-md-offset-3;
+
+    &__card {
+        @extend .p-a-1;
+        @extend .text-xs-center;
+
+        background-color: white;
+        border: 1px solid $gray-dark;
+        position: relative;
+        z-index: 5;
+
+        &-header {
+            font-size: $font-size-h5;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        &-list {
+            @extend .list-inline;
+            @extend .m-b-0;
+
+            li {
+                @extend .list-inline-item;
+
+                text-transform: uppercase;
+            }
+        }
+
+        &-stars {
+            font-size: $font-size-h1;
+            padding: ($spacer / 2) 0;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+
+        &:after {
+            background-color: $gray-dark;
+            content: '';
+            display: block;
+            height: 50%;
+            position: absolute;
+                top: 50%;
+            width: 100%;
+        }
+    }
+}
+
+.home-content {
+    @extend .row;
+
+    &__header {
+        @extend .col-md-12;
+        @extend .text-xs-center;
+
+        text-transform: uppercase;
+
+        h1 {
+            font-size: $font-size-h2;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: $font-size-h2;
+            font-weight: bold;
+        }
+    }
+
+    &__paragraph {
+        @extend .col-md-6;
+        @extend .text-xs-center;
+    }
+
+    &__product {
+        @extend .col-md-4;
+        @extend .text-xs-center;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__stylist {
+        @extend .col-md-3;
+        @extend .text-xs-center;
+
+        &-name {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        &-photo {
+            @extend .img-fluid;
+
+            margin-bottom: ($spacer / 2);
+        }
+
+        &-title {
+            font-style: italic;
+            text-transform: uppercase;
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-2;
+        @extend .p-t-2;
+
+        background-color: white;
+
+        &.\--dark {
+            background-color: $gray-dark;
+            color: white;
+        }
+    }
+}
+
+.home-feature {
+    @extend .p-b-3;
+    @extend .row;
+
+    &:last-of-type {
+        @extend .p-b-0;
+    }
+
+    &__content {
+        @extend .col-md-8;
+
+        .\--right & {
+            @extend .col-md-pull-4;
+        }
+
+        h3 {
+            font-size: $font-size-h3;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    &__photo {
+        @extend .col-md-4;
+
+        .\--right & {
+            @extend .col-md-push-8;
+        }
+
+        img {
+            @extend .img-fluid;
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-3;
+        @extend .p-t-3;
+
+        background-color: $gray-dark;
+        color: white;
+    }
+}
+
+.footer {
+    @extend .row;
+
+    &__map {
+        position: relative;
+        width: 100%;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 56.25%;
+        }
+
+        &-iframe {
+            position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+        }
+
+        &-wrapper {
+            @extend .col-md-4;
+        }
+    }
+
+    &__text {
+        @extend .col-md-8;
+
+        color: white;
+        text-transform: uppercase;
+
+        a {
+            color: white;
+
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-2;
+        @extend .p-t-2;
+
+        background-color: $gray-dark;
+    }
+}
