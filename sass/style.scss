@@ -1,1 +1,711 @@
+$brand-primary: #AA3732;
+
+$enable-flex: true;
+$enable-rounded: false;
+
+$font-family-sans-serif: 'proxima-nova', sans-serif;
+
+$gray-dark: #202020;
+
+$link-hover-decoration: none;
+
+$list-inline-padding: .5rem;
+
+$practices: (
+
+);
+
+$white-dark: #DADACF;
+$white-off: #fafaef;
+
 @import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    background-color: $white-off;
+}
+
+.Nav {
+    @extend .row;
+
+    &__link {
+        @extend .list-inline-item;
+
+        a {
+            color: $white-off;
+            text-transform: uppercase;
+
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+    }
+
+    &__links {
+        @extend .list-inline;
+
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    &__logo {
+        @extend .col-md-3;
+
+        img {
+            @extend .img-fluid;
+        }
+    }
+
+    &__menu {
+        @extend .col-md-9;
+        @extend .text-xs-right;
+
+        color: $white-off;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__wrapper {
+        @extend .p-b-1;
+        @extend .p-t-1;
+
+        background-color: $gray-dark;
+        position: sticky;
+            top: 0;
+        z-index: $zindex-navbar-sticky;
+    }
+}
+
+.Splash {
+    @extend .row;
+
+    line-height: 1;
+    padding-bottom: ($spacer * 14);
+    padding-top: ($spacer * 5);
+
+    &__heading {
+        @extend .col-md-12;
+
+        color: $brand-primary;
+        font-size: $display3-size;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__subheading {
+        @extend .col-md-12;
+
+        color: white;
+        font-size: $font-size-h1;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__wrapper {
+        background-color: $white-dark;
+        background-image: url('../img/Splash-bg.jpg');
+        background-position: center top -80px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.HomeBoxes {
+    @extend .row;
+
+    margin-top: -($spacer * 8);
+    position: relative;
+}
+
+.HomeBox {
+    background-color: white;
+    border: 2px solid $brand-primary;
+    width: 100%;
+
+    &__content {
+        @extend .p-a-1;
+        @extend .text-xs-center;
+
+        color: $gray-dark;
+
+        a {
+            color: $brand-primary;
+            font-weight: bold;
+        }
+    }
+
+    &__header {
+        @extend .p-a-1;
+
+        background-color: $white-off;
+        background-position: right $spacer center;
+        background-repeat: no-repeat;
+        background-size: auto 32px;
+        border-bottom: 2px solid $brand-primary;
+        font-weight: bold;
+        line-height: 1;
+        text-transform: uppercase;
+
+        &.\--defenses {
+            background-image: url('../img/icon/shield.svg');
+        }
+
+        &.\--learning {
+            background-image: url('../img/icon/learning.svg');
+        }
+
+        &.\--process {
+            background-image: url('../img/icon/process.svg');
+        }
+
+        &.\--winning {
+            background-image: url('../img/icon/winning.svg');
+        }
+
+        a {
+            color: $brand-primary;
+        }
+    }
+
+    &__wrapper {
+        @extend .col-md-3;
+        @extend .p-b-1;
+        @extend .p-t-1;
+    }
+}
+
+.FeaturedQuote {
+    @extend .p-a-3;
+    @extend .text-xs-center;
+
+    background-image: url('../img/FeaturedQuote-bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid $gray-dark;
+    color: $white-off;
+    font-size: $font-size-h3;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.HomeContent {
+    @extend .p-b-3;
+    @extend .p-t-2;
+    @extend .row;
+
+    &__box {
+        //
+
+        &.\--featured {
+            @extend .col-md-4;
+        }
+
+        &.\--first-layer {
+            @extend .col-md-6;
+        }
+    }
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .p-b-1;
+        @extend .text-xs-center;
+    }
+
+    &__heading {
+        position: relative;
+
+        &.\--featured {
+            &:before {
+                color: $brand-primary;
+                content: 'Featured Practice Area';
+                font-size: $font-size-lg;
+                display: block;
+            }
+        }
+    }
+
+    &__image {
+        //
+
+        &.\--representation {
+            @extend .col-md-4;
+
+            img {
+                border: 2px solid $gray-dark;
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__practice {
+        @extend .col-md-4;
+        @extend .p-a-1;
+    }
+
+    &__search-button {
+        @extend .col-xs-12;
+        @extend .col-md-3;
+        @extend .p-a-1;
+    }
+
+    &__search-heading {
+        @extend .col-xs-12;
+        @extend .p-t-2;
+        @extend .text-xs-center;
+
+        font-size: $font-size-h3;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__search-input {
+        @extend .col-xs-12;
+        @extend .col-md-9;
+        @extend .p-a-1;
+    }
+
+    &__text {
+        //
+
+        &.\--chat {
+            @extend .col-md-7;
+        }
+
+        &.\--featured {
+            @extend .col-md-8;
+        }
+
+        &.\--first-layer {
+            @extend .col-xs-12;
+            @extend .col-md-6;
+        }
+
+        &.\--representation {
+            @extend .col-md-8;
+        }
+    }
+}
+
+h1, h2 {
+    font-size: $font-size-h2;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.HomeQuote {
+    @extend .col-md-12;
+    @extend .p-b-3;
+    @extend .p-t-3;
+    @extend .text-xs-center;
+
+    &__stars {
+        color: yellow;
+    }
+
+    &__text {
+        font-size: $font-size-h4;
+    }
+
+    &__wrapper {
+        background-color: $brand-primary;
+        color: $white-off;
+
+        &.\--attorney {
+            background-color: $white-dark;
+            color: $gray-dark;
+        }
+    }
+}
+
+.Button {
+    @extend .btn;
+    @extend .btn-block;
+
+    &.\+practice {
+        @extend .btn-lg;
+        @extend .btn-primary;
+        @extend .text-xs-right;
+
+        background-image: url('http://placehold.it/72x72');
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: contain;
+        color: $white-off;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &.\--appeals-writs {
+            background-image: url('../img/icon/appeals-writs-bg.svg');
+        }
+
+        &.\--civil-rights {
+            background-image: url('../img/icon/civil-rights-bg.svg');
+        }
+
+        &.\--drugs-alcohol {
+            background-image: url('../img/icon/drugs-alcohol-bg.svg');
+        }
+
+        &.\--dui-crimes {
+            background-image: url('../img/icon/dui-crimes-bg.svg');
+        }
+
+        &.\--federal-crimes {
+            background-image: url('../img/icon/federal-crimes-bg.svg');
+        }
+
+        &.\--fraud-crimes {
+            background-image: url('../img/icon/fraud-crimes-bg.svg');
+        }
+
+        &.\--theft-crimes {
+            background-image: url('../img/icon/theft-crimes-bg.svg');
+        }
+
+        &.\--violent-crimes {
+            background-image: url('../img/icon/violent-crimes-bg.svg');
+        }
+
+        &.\--weapon-possession {
+            background-image: url('../img/icon/weapon-possession-bg.svg');
+        }
+    }
+
+    &.\+search {
+        background-color: $gray-dark;
+        color: $white-off;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &.\+strength {
+        @extend .btn-lg;
+
+        @include button-outline-variant($white-off);
+
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover {
+            color: $gray-dark;
+        }
+    }
+}
+
+.Representation {
+    @extend .row;
+
+    &__icon {
+        @extend .p-a-1;
+        @extend .text-xs-center;
+
+        align-content: center;
+        display: flex;
+        justify-content: center;
+
+        &.\--narrower {
+            @extend .col-xs-3;
+        }
+
+        &.\--wider {
+            @extend .col-xs-4;
+        }
+
+        img {
+            margin-bottom: auto;
+            margin-top: auto;
+            max-height: 120px;
+        }
+    }
+
+    &__text {
+        @extend .col-md-12;
+
+        ul {
+            @extend .list-unstyled;
+
+            li {
+                padding-left: ($spacer * 2);
+                position: relative;
+
+                &:before {
+                    content: '\f058';
+                    font-family: 'FontAwesome';
+                    position: absolute;
+                        left: ($spacer / 2);
+                        top: 0;
+                }
+            }
+        }
+    }
+}
+
+.StrengthAtTrial {
+    @extend .p-b-3;
+    @extend .p-t-3;
+    @extend .row;
+
+    &__button {
+        @extend .col-xs-12;
+        @extend .col-md-4;
+        @extend .col-md-offset-4;
+    }
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        h2 {
+            font-size: $font-size-h2;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+    }
+
+    &__wrapper {
+        background-color: $gray-dark;
+        background-image: url('../img/StrengthAtTrial-bg.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: $white-off;
+    }
+}
+
+.CriminalProcess {
+    @extend .p-b-3;
+    @extend .p-t-3;
+    @extend .row;
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        h2 {
+            font-size: $font-size-h2;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    &__step {
+        @extend .p-a-1;
+
+        @include make-col();
+
+        width: percentage(1/7);
+
+        &-icon {
+            width: 100%;
+
+            img {
+                @extend .img-fluid;
+            }
+        }
+
+        &-name {
+            @extend .text-xs-center;
+
+            color: $white-off;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    &__wrapper {
+        background-color: $gray-dark;
+        color: $white-off;
+    }
+}
+
+.IllegalEvidence {
+    @extend .p-b-3;
+    @extend .p-t-3;
+    @extend .row;
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .col-md-4;
+        @extend .text-xs-center;
+        @extend .text-md-left;
+
+        h2 {
+            font-size: $font-size-h2;
+            font-weight: bold;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+    }
+
+    &__padding {
+        background-image: url('../img/IllegalEvidence-bg.jpg');
+        background-repeat: no-repeat;
+        background-position: center top -200px;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+
+        &:before {
+            background-image: linear-gradient(rgba($gray-dark, 0), rgba($gray-dark, 1));
+            content: '';
+            display: block;
+            padding-top: 10%;
+        }
+    }
+
+    &__subheader {
+        @extend .col-xs-12;
+        @extend .p-b-1;
+        @extend .p-t-1;
+        @extend .text-xs-center;
+
+        font-size: $font-size-h3;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .col-md-8;
+        @extend .text-xs-center;
+        @extend .text-md-left;
+    }
+
+    &__wrapper {
+        background-color: $gray-dark;
+        color: $white-off;
+    }
+}
+
+.LegalDefenses {
+    @extend .p-b-3;
+    @extend .p-t-3;
+    @extend .row;
+
+    &__button {
+        @extend .col-xs-12;
+        @extend .col-md-4;
+        @extend .col-md-offset-4;
+    }
+
+    &__column {
+        @extend .col-md-4;
+        @extend .p-a-1;
+        @extend .text-xs-center;
+
+        &.\--center {
+            //
+        }
+
+        &.\--left {
+            @extend .text-md-left;
+        }
+
+        &.\--offset {
+            @extend .col-md-offset-4;
+        }
+
+        &.\--pull {
+            @extend .col-md-pull-4;
+        }
+
+        &.\--push {
+            @extend .col-md-push-4;
+        }
+
+        &.\--right {
+            @extend .text-md-right;
+        }
+    }
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        h2 {
+            font-size: $font-size-h2;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+    }
+
+    &__wrapper {
+        background-color: $gray-dark;
+        color: $white-off;
+    }
+}
+
+.LegalDefense {
+    @extend .list-unstyled;
+
+    &__title {
+        color: $white-dark;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+.FeaturedBox {
+    @extend .p-a-1;
+
+    background-color: $brand-primary;
+    color: $white-off;
+
+    &__header {
+        @extend .list-unstyled;
+        @extend .text-xs-center;
+
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__icon {
+        @extend .p-b-1;
+        @extend .text-xs-center;
+
+        width: 100%;
+
+        img {
+            max-height: 120px;
+        }
+    }
+
+    &__questions {
+        @extend .list-unstyled;
+        @extend .m-b-0;
+
+        li {
+            padding-left: ($spacer * 1.5);
+            position: relative;
+
+            &:before {
+                content: '\f059';
+                font-family: 'FontAwesome';
+                position: absolute;
+                    left: 0;
+            }
+        }
+    }
+}
+
+.form-control {
+    border-color: $gray-dark;
+}
+
+.Badge {
+    background-image: url('../img/icon/shield.svg');
+    background-position: center top $spacer;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding: ($spacer * 5) ($spacer * 4) ($spacer * 6) ($spacer * 4);
+}
