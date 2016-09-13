@@ -1,1 +1,576 @@
+$brand-primary: #5A6C3C;
+$brand-secondary: #697c4a;
+$enable-flex: true;
+$enable-rounded: false;
+$font-family-sans-serif: 'azo-sans-web';
+$gray-dark: #231f20;
+$gray: #646061;
+$gray-light: #a9a7a2;
+$gray-lightest: #dfddd8;
+$list-inline-padding: 1rem;
+
 @import 'node_modules/bootstrap/scss/bootstrap';
+
+html, body {
+    height: 100%;
+}
+
+.Splash {
+    background-color: #DEDDD8;
+    background-image: url('../img/Splash-bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    width: 100%;
+
+    &__arrow {
+        @extend .p-a-1;
+        @extend .text-xs-center;
+
+        color: rgba(white, .75);
+        font-size: $font-size-h3;
+    }
+
+    &__content {
+        @extend .container;
+
+        margin: auto;
+    }
+
+    &__messaging {
+        @extend .col-md-5;
+        @extend .list-unstyled;
+        @extend .offset-md-7;
+        @extend .text-xs-center;
+
+        font-size: $font-size-lg;
+        text-transform: uppercase;
+
+        &-heading {
+            @extend .p-b-2;
+
+            span {
+                border-bottom: 2px solid $brand-primary;
+                font-size: $font-size-h4;
+                font-weight: medium;
+                padding-bottom: ($spacer / 3);
+            }
+        }
+
+        &-strong {
+            @extend .m-b-2;
+
+            font-size: $font-size-h1;
+            font-weight: bold;
+        }
+    }
+}
+
+.Nav {
+    @extend .row;
+
+    &__contact {
+        @extend .col-md-3;
+        @extend .list-unstyled;
+        @extend .text-xs-right;
+
+        margin-bottom: auto;
+        margin-top: auto;
+
+        &-number {
+            font-size: $font-size-h3;
+        }
+
+        &-tagline {
+            line-height: 1;
+            text-transform: uppercase;
+        }
+    }
+
+    &__logo {
+        @extend .col-md-3;
+
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    &__menu {
+        @extend .col-md-6;
+        @extend .list-inline;
+        @extend .text-xs-center;
+
+        margin-bottom: auto;
+        margin-top: auto;
+
+        &-item {
+            @extend .list-inline-item;
+
+            padding-bottom: ($spacer / 3);
+        }
+
+        &-link {
+            color: $gray-dark;
+            font-size: $font-size-sm;
+            text-transform: uppercase;
+
+            &.\--active {
+                border-bottom: 2px solid $brand-primary;
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .container-fluid;
+        @extend .p-b-1;
+        @extend .p-t-1;
+
+        border-top: 3px solid $brand-primary;
+    }
+}
+
+.Button {
+    @extend .btn;
+
+    &.\+contact {
+        @extend .btn-block;
+        @extend .btn-lg;
+        @extend .btn-primary;
+
+        font-size: $font-size-base;
+        text-transform: uppercase;
+    }
+
+    &.\+more {
+        @extend .btn-lg;
+        @extend .btn-outline-primary;
+        @extend .p-l-3;
+        @extend .p-r-3;
+
+        border-width: 2px;
+        font-size: $font-size-sm;
+        text-transform: uppercase;
+    }
+}
+
+.Stats {
+    @extend .row;
+
+    &__list {
+        @extend .col-md-4;
+        @extend .list-unstyled;
+        @extend .text-xs-center;
+
+        color: $brand-primary;
+        line-height: 1.125;
+        text-transform: uppercase;
+
+        &-heading {
+            font-size: $display4-size;
+            font-weight: bold;
+        }
+    }
+
+    &__wrapper {
+        @extend .container;
+        @extend .p-b-2;
+        @extend .p-t-2;
+
+        position: relative;
+
+        &:after {
+            background-color: $brand-primary;
+            content: '';
+            display: block;
+            height: 1px;
+            position: absolute;
+                bottom: 0;
+                left: $spacer;
+            width: calc(100% - (#{$spacer} * 2));
+        }
+    }
+}
+
+.HomeAttorneys {
+    @extend .p-b-1;
+    @extend .row;
+}
+
+.HomeAttorney {
+    @extend .col-md-6;
+    @extend .p-b-2;
+    @extend .text-xs-center;
+
+    &__profile {
+        border: 2px solid rgba($brand-primary, 0.75);
+        display: flex;
+        position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+
+        &-link {
+            background-color: rgba($brand-primary, 0.75);
+            color: white;
+            line-height: ($spacer * 3);
+            margin: auto 0 ($spacer * 2) 0;
+            padding: 0 $spacer;
+        }
+
+        &-wrapper {
+            @extend .m-b-2;
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            width: 100%;
+
+            &:before {
+                content: '';
+                display: block;
+                padding-top: 50%;
+            }
+
+            &.\--douglas {
+                background-image: url('http://placecage.com/800/400');
+            }
+
+            &.\--neal {
+                background-image: url('http://placecage.com/c/800/400');
+            }
+        }
+    }
+}
+
+.HomeContent {
+    @extend .row;
+
+    &__first {
+        @extend .col-xs-12;
+        @extend .p-t-3;
+        @extend .text-xs-center;
+    }
+
+    &__practices {
+        @extend .list-unstyled;
+
+        &-item {
+            @extend .m-b-1;
+        }
+
+        &-link {
+            @extend .btn;
+            @extend .btn-block;
+            @extend .btn-lg;
+            @extend .btn-outline-primary;
+            @extend .text-xs-left;
+
+            border-width: 2px;
+            background-image: url('http://placehold.it/320x320');
+            background-repeat: no-repeat;
+            background-size: ($spacer * 4) ($spacer * 4);
+            line-height: ($spacer * 4);
+            padding: 0 $spacer 0 ($spacer * 5);
+            text-transform: uppercase;
+        }
+
+        &-wrapper {
+            @extend .col-md-6;
+            @extend .p-b-3;
+            @extend .p-t-3;
+            @extend .text-xs-center;
+        }
+    }
+
+    &__questions {
+        @extend .list-unstyled;
+
+        &-item {
+            @extend .m-b-1;
+            @extend .p-l-2;
+            @extend .text-xs-left;
+
+            color: $gray;
+            position: relative;
+
+            &:last-child {
+                @extend .m-b-2;
+            }
+
+            &:before {
+                color: $brand-primary;
+                content: '+';
+                display: block;
+                position: absolute;
+                    left: 0;
+                    top: 0;
+            }
+        }
+
+        &-link {
+            @include clearfix();
+
+            color: $gray-dark;
+        }
+
+        &-wrapper {
+            @extend .col-md-6;
+            @extend .p-b-3;
+            @extend .p-t-3;
+            @extend .text-xs-center;
+        }
+    }
+
+    h1 {
+        font-size: $font-size-h2;
+    }
+
+    h2 {
+        font-size: $font-size-h3;
+    }
+
+    h1, h2 {
+        position: relative;
+        text-transform: uppercase;
+
+        &:after {
+            @extend .m-b-2;
+            @extend .text-xs-center;
+
+            color: $brand-primary;
+            content: '+';
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+.HomeTestimonials {
+    @extend .row;
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        h2 {
+            font-size: $font-size-h3;
+            position: relative;
+            text-transform: uppercase;
+
+            &:after {
+                @extend .m-b-2;
+                @extend .text-xs-center;
+
+                color: $brand-primary;
+                content: '+';
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-3;
+        @extend .p-t-3;
+
+        background-image: url('../img/HomeTestimonials-bg.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.HomeTestimonial {
+    @extend .col-xs-12;
+    @extend .list-unstyled;
+    @extend .text-xs-center;
+
+    &__name {
+        color: $gray;
+        text-transform: uppercase;
+    }
+
+    &__photo {
+        @extend .m-b-1;
+    }
+
+    &__quote {
+        @extend .m-b-2;
+
+        color: $gray;
+        font-size: $font-size-h3;
+        font-style: italic;
+    }
+}
+
+.HomeCallToAction {
+    @extend .row;
+
+    &__contact {
+        @extend .col-md-6;
+        @extend .list-unstyled;
+        @extend .m-b-0;
+        @extend .text-xs-center;
+
+        &-number {
+            font-size: $font-size-h1;
+        }
+
+        &-tagline {
+            font-size: $font-size-lg;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+    }
+
+    &__experience {
+        @extend .col-md-6;
+        @extend .list-unstyled;
+        @extend .text-xs-center;
+
+        font-size: $font-size-lg;
+        margin-bottom: auto;
+        margin-top: auto;
+
+        a {
+            border-bottom: 1px solid;
+            color: white;
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-2;
+        @extend .p-t-2;
+
+        background-color: $brand-primary;
+        color: white;
+    }
+}
+
+.PreFooter {
+    @extend .row;
+
+    &__nav {
+        @extend .col-xs-12;
+        @extend .list-inline;
+        @extend .m-b-0;
+        @extend .text-xs-center;
+
+        color: white;
+
+        &-item {
+            @extend .list-inline-item;
+
+            position: relative;
+
+            &:not(:last-child) {
+                &:after {
+                    @extend .m-l-1;
+
+                    content: '|';
+                }
+            }
+        }
+
+        &-link {
+            color: white;
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-1;
+        @extend .p-t-1;
+
+        background-color: $brand-secondary;
+    }
+}
+
+.Footer {
+    @extend .row;
+
+    &__about {
+        @extend .col-md-6;
+        @extend .list-unstyled;
+        @extend .text-xs-center;
+
+        color: $gray-light;
+
+        a {
+            border-bottom: 1px solid;
+        }
+    }
+
+    &__contact {
+        @extend .col-md-6;
+        @extend .text-xs-center;
+
+        &-form {
+            @extend .p-b-3;
+        }
+
+        &-input {
+            @extend .form-control;
+            @extend .m-b-1;
+
+            background-color: transparent;
+            border: 2px solid $gray-light;
+
+            &::placeholder {
+                text-transform: uppercase;
+            }
+        }
+
+        h2 {
+            color: $gray-light;
+            font-size: $font-size-h3;
+            position: relative;
+            text-transform: uppercase;
+
+            &:after {
+                @extend .m-b-2;
+                @extend .text-xs-center;
+
+                color: $brand-primary;
+                content: '+';
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+    &__social {
+        @extend .list-inline;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+
+        &-link {
+            @extend .p-a-1;
+
+            background-color: $brand-primary;
+            border-radius: 50%;
+            color: white;
+            display: inline-block;
+            height: ($spacer * 3);
+            line-height: $spacer;
+            width: ($spacer * 3);
+
+            &:hover {
+                background-color: $brand-secondary;
+                color: white;
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .p-b-3;
+        @extend .p-t-3;
+
+        background-color: $gray-lightest;
+    }
+}
