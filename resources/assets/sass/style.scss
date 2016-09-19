@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+$brand-primary: #018c7f;
+$brand-warning: #F57B20;
+
+$container-max-widths: (
+    sm: 576px,
+    md: 720px
+);
+
+$font-family-sans-serif: 'Open Sans';
+$gray-dark: #606060;
+$gray-lightest: #efefef;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    background-color: $gray-lightest;
+}
+
+.Button {
+    @extend .btn;
+    @extend .btn-warning;
+}
+
+h1 {
+    font-weight: 100;
+}
