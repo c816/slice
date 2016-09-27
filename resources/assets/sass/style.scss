@@ -1,0 +1,491 @@
+$brand-primary: #004774;
+$brand-primary-dark: #002038;
+$brand-primary-light: #0070a2;
+$brand-primary-lightest: #3a8cc0;
+
+$brand-warning: #e67e22;
+$brand-warning-dark: #ca6701;
+
+$enable-flex: true;
+$enable-rounded: false;
+$font-family-sans-serif: 'aktiv-grotesk', sans-serif;
+$gray-dark: #231f20;
+$gray-lighter: #dadada;
+$gray-lightest: #f6f6f6;
+$headings-font-weight: 300;
+$list-inline-padding: 1rem;
+
+$body-bg: $gray-lightest;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+.Boxes {
+    @extend .row;
+
+    &__wrapper {
+        @extend .container-fluid;
+
+        background-color: black;
+    }
+}
+
+.Box {
+    background-image: url('http://placecage.com/800/600');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+    transition: all 256ms ease-in-out;
+
+    &__link {
+        border-top: ($spacer / 2) solid $brand-primary;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-end;
+        transition: all 256ms ease-in-out;
+        width: 100%;
+
+        div {
+            @extend .p-a-1;
+
+            background-color: rgba($brand-primary, .85);
+            color: white;
+            display: block;
+            text-transform: uppercase;
+            transition: all 256ms ease-in-out;
+            width: 100%;
+        }
+
+        &.\--center {
+            border-top-color: $brand-primary-lightest;
+
+            div {
+                background-color: rgba($brand-primary-lightest, .85);
+            }
+        }
+
+        &.\--right {
+            border-top-color: $brand-primary-dark;
+
+            div {
+                background-color: rgba($brand-primary-dark, .85);
+            }
+        }
+
+        &.\--center, &.\--left, &.\--right {
+            &:hover {
+                border-top-color: $brand-warning;
+
+                div {
+                    background-color: $brand-warning;
+                }
+            }
+        }
+
+        span {
+            display: block;
+            font-size: $font-size-lg;
+            letter-spacing: 1px;
+        }
+    }
+
+    &:hover {
+        background-size: 120%;
+    }
+
+    &__wrapper {
+        @extend .col-md-4;
+
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-top: percentage((3/4));
+        }
+    }
+}
+
+.Button {
+    @extend .btn;
+
+    @include button-size($spacer, ($spacer * 3), $font-size-base, 0);
+
+    text-transform: uppercase;
+    transition: all 256ms ease-in-out;
+
+    &.\+chat {
+        @include button-variant(white, $brand-warning, $brand-warning-dark);
+    }
+
+    &.\+primary {
+        @include button-variant(white, $brand-primary, transparent);
+    }
+
+    &.\+default {
+        @include button-variant(white, $brand-primary-lightest, $brand-primary-light);
+    }
+
+    &.\+light {
+        @include button-variant(white, $brand-primary-lightest, $brand-primary-light);
+    }
+
+    &.\+nav {
+        @include button-size($spacer, $spacer, $font-size-sm, 0);
+    }
+
+    &.\+orange {
+        @include button-variant(white, $brand-warning, $brand-warning);
+    }
+
+    &.\+pre-footer {
+        @extend .btn-block;
+
+        @include button-size(($spacer * 1.5), ($spacer * 3), $font-size-base, 0);
+
+        position: relative;
+
+        &:before {
+            background-color: rgba($gray-dark, .15);
+            content: '';
+            display: block;
+            height: ($spacer / 2);
+            position: absolute;
+                left: 0;
+                top: 0;
+            width: 100%;
+            z-index: 5;
+        }
+    }
+}
+
+.Divider {
+    @extend .col-md-12;
+    @extend .p-x-1;
+    @extend .p-y-2;
+
+    background-image: url('../img/divider.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: calc((#{$spacer} * 4) + 30px);
+    position: relative;
+
+    &:before {
+        background-color: $gray-lighter;
+        content: '';
+        display: block;
+        height: 1px;
+        position: absolute;
+            left: $spacer;
+            top: calc(50% - 1px);
+        width: calc(100% - (#{$spacer} * 2));
+        z-index: -1;
+    }
+}
+
+.HomeBeforeAfter {
+    @extend .row;
+
+    &__image {
+        @extend .col-xs-6;
+    }
+
+    &__link {
+        img {
+            @extend .img-fluid;
+
+            border: 2px solid white;
+            box-shadow: ($spacer / 2) ($spacer / 2) ($spacer) $gray-lighter;
+            transition: all 256ms ease-in-out;
+
+            &:hover {
+                box-shadow: ($spacer / 2) ($spacer / 2) ($spacer) $gray-light;
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .col-md-4;
+        @extend .p-b-2;
+    }
+}
+
+.HomeContent {
+    @extend .row;
+
+    &__button {
+        @extend .col-md-4;
+        @extend .p-a-1;
+    }
+
+    &__list {
+        @extend .list-unstyled;
+
+        line-height: 1.125;
+
+        &-item {
+            //
+
+            &.\--heading {
+                font-size: $display3-size;
+            }
+
+            &.\--subheading {
+                font-size: $font-size-h3;
+            }
+        }
+    }
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .p-b-2;
+        @extend .p-t-3;
+        @extend .text-xs-center;
+
+        &.\--half {
+            @extend .col-md-6;
+            @extend .col-xs-12;
+        }
+
+        h1 {
+            @extend .m-b-2;
+        }
+
+        h2 {
+            font-size: $font-size-h3;
+            position: relative;
+
+            &:after {
+                @extend .m-b-3;
+                @extend .m-t-1;
+
+                background-color: $brand-primary-light;
+                content: '';
+                display: block;
+                height: ($spacer / 4);
+                margin-left: auto;
+                margin-right: auto;
+                width: ($spacer * 6);
+            }
+        }
+
+        p {
+            @extend .lead;
+
+            line-height: 2;
+        }
+    }
+
+    &__video {
+        @extend .embed-responsive-item;
+
+        &-wrapper {
+            @extend .embed-responsive;
+            @extend .embed-responsive-16by9;
+        }
+    }
+}
+
+.HomePractice {
+    box-shadow: ($spacer / 3) ($spacer / 3) ($spacer / 6) $gray;
+    position: relative;
+    width: 100%;
+
+    &:before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+    }
+
+    &__link {
+        @extend .text-xs-center;
+
+        background-image: url('http://placehold.it/480x480/ff0000');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+        transition: all 256ms ease-in-out;
+
+        &:hover {
+            background-size: 120% auto;
+        }
+
+        &-content {
+            background-color: rgba($brand-primary-lightest, .85);
+
+            display: flex;
+            height: 100%;
+            opacity: 0;
+            transition: all 368ms ease-in-out;
+            width: 100%;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            div {
+                @extend .p-a-1;
+
+                color: white;
+                font-size: $font-size-lg;
+                margin: auto;
+                width: 100%;
+            }
+        }
+
+        &-title {
+            @extend .p-a-1;
+
+            background-color: $brand-primary;
+            color: white;
+            margin-top: auto;
+            position: relative;
+            text-transform: uppercase;
+            z-index: 5;
+        }
+    }
+
+    &__wrapper {
+        @extend .col-md-4;
+        @extend .p-b-3;
+    }
+}
+
+.MainGraphic {
+    @extend .row;
+
+    &__button {
+        @extend .list-inline-item;
+    }
+
+    &__buttons {
+        @extend .p-a-1;
+        @extend .col-xs-12;
+        @extend .list-inline;
+        @extend .m-b-0;
+        @extend .text-xs-center;
+    }
+
+    &__container {
+        @extend .container;
+    }
+
+    &__content {
+        @extend .col-md-8;
+        @extend .offset-md-2;
+        @extend .p-a-1;
+        @extend .text-xs-center;
+
+        font-size: $display4-size;
+        line-height: 1.125;
+    }
+
+    &__inner {
+        @extend .p-y-2;
+
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+    }
+
+    &__social {
+        @extend .col-xs-12;
+        @extend .list-inline;
+        @extend .text-md-right;
+
+        margin-bottom: auto;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+
+        &-link {
+            @extend .text-xs-center;
+
+            background-color: $brand-primary;
+            border-radius: 50%;
+            color: white;
+            display: block;
+            font-size: $font-size-h3;
+            height: ($spacer * 3);
+            line-height: ($spacer * 3);
+            width: ($spacer * 3);
+
+            &:hover {
+                background-color: $brand-primary-dark;
+                color: white;
+            }
+        }
+    }
+
+    &__wrapper {
+        background-image: url('../img/MainGraphic-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-top: percentage((9/21));
+        }
+    }
+}
+
+.Nav {
+    @extend .row;
+
+    &__link {
+        color: $gray-dark;
+        font-size: $font-size-sm;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        @extend .col-md-8;
+        @extend .list-inline;
+        @extend .m-b-0;
+        @extend .text-xs-right;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+    }
+
+    &__logo {
+        @extend .col-md-4;
+    }
+
+    &__wrapper {
+        @extend .p-y-2;
+        @extend .p-x-1;
+
+        background-color: white;
+        border-bottom: ($spacer / 2) solid $brand-primary;
+        position: sticky;
+            top: 0;
+        z-index: $zindex-navbar-sticky;
+    }
+}
