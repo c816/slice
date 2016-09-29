@@ -44,7 +44,7 @@ let app = new Vue({
         }
     },
     ready() {
-        this.$http.get('../assets/files/content.html').then((response) => {
+        this.$http.get('./assets/files/content.html').then((response) => {
             this.raw = response.body;
         });
     }
