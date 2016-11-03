@@ -1,0 +1,534 @@
+@import url(https://fonts.googleapis.com/css?family=Cinzel);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+$brand-primary: #c39033;
+$enable-flex: true;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$font-family-serif: 'Cinzel', serif;
+$link-hover-decoration: none;
+$list-inline-padding: 1rem;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+@mixin heading() {
+    position: relative;
+    text-transform: uppercase;
+
+    &:after {
+        @extend .mb-2;
+        @extend .mt-1;
+
+        background-color: $brand-primary;
+        content: '';
+        display: block;
+        height: ($spacer / 3);
+        width: ($spacer * 5);
+    }
+}
+
+.Accolades {
+    &__wrapper {
+        @extend .py-2;
+
+        border-bottom: 1px solid $gray-lighter;
+        border-top: ($spacer / 3) solid $gray-lighter;
+    }
+}
+
+.Button {
+    @extend .btn;
+
+    font-weight: 100;
+    text-transform: uppercase;
+
+    &.\--block {
+        @extend .btn-block;
+    }
+
+    &.\--home-practice {
+        @extend .btn-block;
+
+        @include button-size($spacer, ($spacer / 2), $font-size-sm, ($spacer / 4));
+        @include button-variant(white, $gray, $gray);
+
+        text-align: left;
+    }
+
+    &.\--primary {
+        @include button-size($spacer, $spacer, $font-size-sm, ($spacer / 4));
+        @include button-variant($gray-dark, $brand-primary, lighten($brand-primary, 13%));
+    }
+}
+
+.CallToAction {
+    @extend .row;
+
+    &__button {
+        @extend .col-xs-12;
+        @extend .col-md-4;
+        @extend .p-1;
+    }
+
+    &__heading {
+        border-bottom: ($spacer / 3) solid $brand-primary;
+        font-family: $font-family-serif;
+        font-size: $font-size-h1;
+        font-weight: 100;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        p {
+            @extend .mb-2;
+            @extend .mt-3;
+
+            @include clearfix();
+
+            font-size: $font-size-lg;
+        }
+    }
+}
+
+.Content {
+    @extend .row;
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        h1 {
+            &:after {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .py-3;
+    }
+}
+
+.Footer {
+    @extend .row;
+
+    &__link {
+        color: $gray-dark;
+    }
+
+    &__list {
+        @extend .list-inline;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+    }
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+    }
+
+    &__wrapper {
+        @extend .py-3;
+
+        border-top: 1px solid $gray-lighter;
+    }
+}
+
+.Header {
+    @extend .row;
+
+    &__link {
+        color: $gray-dark;
+
+        &:hover {
+            color: $brand-warning;
+        }
+    }
+
+    &__list {
+        @extend .col-md-5;
+        @extend .list-inline;
+
+        margin-bottom: auto;
+        margin-top: auto;
+
+        &.\--left {
+            @extend .text-xs-right;
+        }
+
+        &-item {
+            @extend .list-inline-item;
+
+            font-size: $font-size-sm;
+            text-transform: uppercase;
+        }
+    }
+
+    &__logo {
+        @extend .col-md-2;
+
+        img {
+            @extend .img-fluid;
+        }
+    }
+
+    &__wrapper {
+        @extend .container-fluid;
+        @extend .py-1;
+    }
+}
+
+.HomeFeature {
+    @extend .row;
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .col-md-6;
+        @extend .p-1;
+
+        color: white;
+    }
+
+    &__video {
+        @extend .col-xs-12;
+        @extend .col-md-6;
+        @extend .p-1;
+    }
+
+    &__wrapper {
+        @extend .py-3;
+
+        background-color: $gray-dark;
+        background-image: url('../img/HomeFeature__wrapper-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+
+    & .Video {
+        &__wrapper {
+            border: 1px solid $brand-warning;
+            box-shadow: 0 0 $spacer lighten($brand-primary, 13%);
+        }
+    }
+}
+
+.HomePractice {
+    @extend .col-xs-12;
+    @extend .col-md-4;
+    @extend .p-1;
+}
+
+.HomePractices {
+    @extend .row;
+}
+
+.ListIcon {
+    @extend .list-unstyled;
+
+    &__item {
+        @extend .mb-1;
+        @extend .pl-2;
+
+        position: relative;
+
+        &:before {
+            font-family: FontAwesome;
+            font-size: inherit;
+            position: absolute;
+                left: 0;
+                top: 0;
+        }
+
+        &.\--check {
+            &:before {
+                color: $brand-primary;
+                content: '\f00c';
+            }
+        }
+
+        &.\--chevron {
+            &:before {
+                content: '\f054';
+            }
+        }
+    }
+}
+
+.ListLocation {
+    @extend .list-unstyled;
+    @extend .text-xs-center;
+
+    @include make-col-ready();
+    @include make-col(1, 5);
+
+    &__item {
+        font-size: $font-size-sm;
+
+        &.\--heading {
+            @extend .mb-1;
+
+            color: $brand-primary;
+            font-size: $font-size-lg;
+        }
+    }
+}
+
+.MainGraphic {
+    @extend .row;
+
+    &__container {
+        @extend .container;
+
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+    }
+
+    &__list {
+        @extend .col-xs-12;
+        @extend .list-unstyled;
+        @extend .mb-0;
+        @extend .mt-3;
+        @extend .text-xs-center;
+
+        &-item {
+            color: white;
+
+            &.\--heading {
+                font-family: $font-family-serif;
+                font-size: $font-size-h1;
+                font-weight: bold;
+                text-shadow: 1px 1px 1px $gray-dark;
+                text-transform: uppercase;
+            }
+
+            &.\--text {
+                @extend .mb-2;
+
+                font-size: $font-size-lg;
+                text-shadow: 1px 1px 1px $gray-dark;
+            }
+        }
+    }
+
+    &__wrapper {
+        background-color: $gray-dark;
+        background-image: url('../img/MainGraphic__wrapper-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        position: relative;
+        width: 100%;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-top: percentage(3/8);
+        }
+    }
+}
+
+.MainContent {
+    @extend .col-xs-12;
+    @extend .col-md-8;
+    @extend .p-1;
+}
+
+.Map {
+    position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+
+    &__wrapper {
+        background-color: $gray;
+        border-bottom: ($spacer / 3) solid $brand-primary;
+        position: relative;
+        width: 100%;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 25%;
+        }
+    }
+}
+
+.Nav {
+    @extend .row;
+
+    &__contact {
+        @extend .col-xs-12;
+        @extend .col-md-8;
+        @extend .list-inline;
+        @extend .mb-0;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+    }
+
+    &__link {
+        color: $gray-dark;
+        font-size: $font-size-sm;
+        text-transform: uppercase;
+
+        &:hover {
+            color: $brand-warning;
+        }
+
+        &.\--contact {
+            i {
+                color: $brand-warning;
+            }
+        }
+    }
+
+    &__social {
+        @extend .col-md-4;
+        @extend .list-inline;
+        @extend .mb-0;
+        @extend .text-xs-right;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+    }
+
+    &__wrapper {
+        @extend .container-fluid;
+        @extend .py-1;
+
+        border-bottom: 1px solid $gray-lighter;
+    }
+}
+
+.Sidebar {
+    @extend .col-xs-12;
+    @extend .col-md-4;
+    @extend .p-1;
+
+    &__box {
+        @extend .pb-1;
+        @extend .pt-3;
+
+        h3 {
+            @extend .mb-1;
+
+            font-size: $font-size-h5;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.SidebarCard {
+    //
+
+    &__body {
+        @extend .p-1;
+
+        background-color: $gray-lightest;
+        border: 1px solid $gray-lighter;
+
+        &.\--about {
+            @extend .text-xs-center;
+        }
+
+        &-heading {
+            font-size: $font-size-lg;
+            text-transform: uppercase;
+        }
+    }
+
+    &__header {
+        @extend .px-1;
+        @extend .py-2;
+        @extend .text-xs-center;
+
+        background-color: $gray-dark;
+        border-bottom: ($spacer / 4) solid $brand-warning;
+        color: white;
+        font-size: $font-size-h4;
+        text-transform: uppercase;
+    }
+
+    &__image {
+        img {
+            @extend .img-fluid;
+        }
+    }
+}
+
+.Testimonial {
+    @extend .row;
+
+    &__list {
+        @extend .col-xs-12;
+        @extend .list-unstyled;
+        @extend .mb-0;
+        @extend .text-xs-center;
+
+        &-item {
+            color: white;
+            font-size: $font-size-lg;
+
+            &.\--quote {
+                @extend .mb-2;
+            }
+
+            &.\--source {
+                @extend .mb-2;
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .py-3;
+
+        background-color: $gray-dark;
+        background-image: url('../img/Testimonial__wrapper-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+}
+
+.Video {
+    @extend .embed-responsive-item;
+
+    &__wrapper {
+        @extend .embed-responsive;
+        @extend .embed-responsive-16by9;
+    }
+}
+
+h1 {
+    @include heading();
+
+    font-size: $font-size-h2;
+}
+
+h2 {
+    @extend .pt-1;
+
+    @include heading();
+
+    font-size: $font-size-h4;
+
+}
