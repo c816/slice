@@ -1,0 +1,596 @@
+$brand-primary: #aa8a2f;
+$brand-secondary: #9ccb43;
+$enable-flex: true;
+$enable-rounded: false;
+$font-family-sans-serif: 'futura-pt', sans-serif;
+$gray: #3a3a3a;
+$gray-dark: black;
+$gray-light: #a0a0a0;
+$gray-lighter: #efefef;
+$gray-lightest: #fafafa;
+$list-inline-padding: 1rem;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+.Accolades {
+    display: flex;
+
+    &__wrapper {
+        @extend .py-2;
+
+        border-bottom: ($spacer / 3) solid $gray-lighter;
+    }
+
+    img {
+        margin: auto;
+    }
+}
+
+.Button {
+    @extend .btn;
+
+    font-weight: 100;
+    text-transform: uppercase;
+
+    &.\--block {
+        @extend .btn-block;
+    }
+
+    &.\--home-practice {
+        @extend .btn-block;
+
+        @include button-size($spacer, ($spacer / 2), $font-size-sm, ($spacer / 4));
+        @include button-variant(white, $gray, $gray);
+
+        text-align: left;
+    }
+
+    &.\--primary {
+        @include button-size($spacer, ($spacer * 1.5), $font-size-sm, ($spacer / 4));
+        @include button-variant(white, $brand-primary, darken($brand-primary, 13%));
+    }
+
+    &.\--secondary {
+        @include button-size($spacer, ($spacer * 1.5), $font-size-sm, ($spacer / 4));
+        @include button-variant(white, $brand-secondary, darken($brand-secondary, 13%));
+    }
+
+    &.\--sign-up {
+        @include button-variant(white, $brand-secondary, darken($brand-secondary, 13%));
+    }
+}
+
+.CallToAction {
+    @extend .row;
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        color: white;
+        font-size: $font-size-h2;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px $gray-dark;
+        text-transform: uppercase;
+    }
+
+    &__wrapper {
+        @extend .container-fluid;
+        @extend .py-3;
+
+        background-attachment: fixed;
+        background-color: $gray-dark;
+        background-image: url('../img/CallToAction__wrapper-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.Card {
+    background-color: white;
+
+    &__body {
+        @extend .p-1;
+
+        &-heading {
+            font-size: $font-size-lg;
+        }
+    }
+
+    &__image {
+        img {
+            @extend .img-fluid;
+        }
+    }
+
+    &__list {
+        @extend .list-unstyled;
+        @extend .mb-0;
+
+        &-item {
+            //
+
+            &.\--attorney-name {
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+            &.\--attorney-role {
+                @extend .mb-1;
+
+                color: $gray-light;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.Content {
+    @extend .row;
+
+    &__wrapper {
+        @extend .py-3;
+    }
+}
+
+.Footer {
+    @extend .row;
+
+    &__column {
+        @extend .col-md-4;
+        @extend .p-1;
+        @extend .text-xs-center;
+
+        h3 {
+            @extend .mb-2;
+
+            font-size: $font-size-h4;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            &::first-letter {
+                border-bottom: ($spacer / 5) solid;
+            }
+        }
+    }
+
+    &__link {
+        color: white;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__list {
+        @extend .list-unstyled;
+
+        &-item {
+            //
+
+            &.\--firm-name {
+                @extend .mb-1;
+
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            &.\--image {
+                @extend .mb-2;
+
+                img {
+                    max-width: 280px;
+                }
+            }
+
+            a {
+                color: white;
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .pb-3;
+        @extend .pt-2;
+
+        background-color: $gray;
+        color: white;
+    }
+}
+
+.HomeAttorneys {
+    @extend .row;
+
+    &__card {
+        @extend .col-xs-12;
+        @extend .col-md-4;
+        @extend .p-1;
+    }
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+    }
+
+    &__wrapper {
+        @extend .py-3;
+
+        background-color: $gray-lighter;
+    }
+}
+
+.HomeContent {
+    @extend .row;
+
+    &__half {
+        @extend .col-xs-12;
+        @extend .col-md-6;
+        @extend .p-1;
+    }
+
+    &__header {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+    }
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .p-1;
+
+        font-size: $font-size-lg;
+
+        p {
+            text-align: justify;
+        }
+    }
+
+    &__wrapper {
+        @extend .py-3;
+    }
+}
+
+.HomeFeature {
+    //
+
+    &__wrapper {
+        background-attachment: fixed;
+        background-color: $gray-dark;
+        background-image: url('../img/HomeFeature__wrapper-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 37.5vw;
+        width: 100%;
+    }
+}
+
+.InsideGraphic {
+    @extend .row;
+
+    &__text {
+        @extend .col-xs-12;
+        @extend .text-xs-center;
+
+        color: white;
+        font-size: $font-size-h2;
+    }
+
+    &__wrapper {
+        @extend .py-3;
+
+        background-color: $brand-secondary;
+    }
+}
+
+.ListIcon {
+    @extend .list-unstyled;
+
+    &__item {
+        @extend .mb-1;
+        @extend .pl-2;
+
+        position: relative;
+
+        &:before {
+            font-family: FontAwesome;
+            font-size: inherit;
+            position: absolute;
+                left: 0;
+                top: 0;
+        }
+
+        &.\--certificate {
+            //
+
+            &:before {
+                content: '\f0a3';
+            }
+        }
+    }
+}
+
+.ListLocation {
+    @extend .list-unstyled;
+    @extend .text-xs-center;
+
+    @include make-col-ready();
+    @include make-col(1, 5);
+
+    &__item {
+        font-size: $font-size-sm;
+
+        &.\--heading {
+            @extend .mb-1;
+
+            color: $brand-primary;
+            font-size: $font-size-lg;
+        }
+    }
+}
+
+.MainGraphic {
+    @extend .row;
+
+    &__container {
+        @extend .container;
+
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+    }
+
+    &__list {
+        @extend .col-xs-12;
+        @extend .list-unstyled;
+        @extend .mb-0;
+        @extend .mt-3;
+        @extend .text-xs-center;
+
+        &-item {
+            color: white;
+
+            &.\--heading {
+                font-family: $font-family-serif;
+                font-size: $font-size-h1;
+                font-weight: bold;
+                text-shadow: 1px 1px 1px $gray-dark;
+                text-transform: uppercase;
+            }
+
+            &.\--text {
+                @extend .mb-2;
+
+                font-size: $font-size-lg;
+                text-shadow: 1px 1px 1px $gray-dark;
+            }
+        }
+    }
+
+    &__wrapper {
+        background-color: $gray-dark;
+        display: flex;
+        min-height: 100vh;
+        width: 100%;
+    }
+}
+
+.MainContent {
+    @extend .col-xs-12;
+    @extend .col-md-8;
+    @extend .p-1;
+
+    h1 {
+        font-size: $font-size-h2;
+        text-transform: uppercase;
+    }
+}
+
+.PracticeArea {
+    @extend .row;
+
+    &__image {
+        @extend .col-xs-4;
+
+        img {
+            @extend .img-fluid;
+            @extend .rounded-circle;
+        }
+    }
+
+    &__list {
+        @extend .list-unstyled;
+
+        &-item {
+            //
+
+            h3 {
+                @extend .mb-1;
+
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &__text {
+        @extend .col-xs-8;
+    }
+
+    &__wrapper {
+        @extend .col-xs-12;
+        @extend .col-md-6;
+        @extend .p-1;
+    }
+}
+
+.Sidebar {
+    @extend .col-xs-12;
+    @extend .col-md-4;
+    @extend .p-1;
+
+    &__box {
+        @extend .pb-3;
+
+        h3 {
+            @extend .mb-1;
+            @extend .text-xs-center;
+
+            font-size: $font-size-h3;
+            text-transform: uppercase;
+        }
+
+        img {
+            @extend .img-fluid;
+        }
+    }
+}
+
+.SubFooter {
+    @extend .row;
+
+    &__copyright {
+        @extend .col-xs-6;
+
+        color: white;
+    }
+
+    &__link {
+        color: white;
+    }
+
+    &__list {
+        @extend .col-xs-6;
+        @extend .text-xs-right;
+    }
+
+    &__wrapper {
+        @extend .py-1;
+
+        background-color: $gray-dark;
+    }
+}
+
+.Testimonial {
+    @extend .row;
+
+    &__list {
+        @extend .col-xs-12;
+        @extend .list-unstyled;
+        @extend .mb-0;
+        @extend .text-xs-center;
+
+        &-item {
+            color: white;
+            font-size: $font-size-lg;
+
+            &.\--quote {
+                @extend .mb-2;
+            }
+
+            &.\--source {
+                @extend .mb-2;
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .py-3;
+
+        background-color: $gray-dark;
+        background-image: url('../img/Testimonial__wrapper-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+}
+
+.TopNav {
+    @extend .row;
+
+    &__contact {
+        @extend .col-xs-12;
+        @extend .col-md-9;
+        @extend .list-inline;
+        @extend .mb-0;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+    }
+
+    &__link {
+        color: $gray-dark;
+        font-size: $font-size-sm;
+
+        &:hover {
+            color: $brand-primary;
+        }
+    }
+
+    &__social {
+        @extend .col-md-3;
+        @extend .list-inline;
+        @extend .mb-0;
+        @extend .text-xs-right;
+
+        &-item {
+            @extend .list-inline-item;
+        }
+    }
+
+    &__wrapper {
+        @extend .container-fluid;
+
+        background-color: $gray-lighter;
+        border-bottom: 1px solid $gray-lightest;
+        padding-bottom: ($spacer / 2);
+        padding-top: ($spacer / 2);
+    }
+}
+
+.Video {
+    @extend .embed-responsive-item;
+
+    &__wrapper {
+        @extend .embed-responsive;
+        @extend .embed-responsive-16by9;
+    }
+}
+
+h1 {
+    @extend .mb-2;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    &::first-letter {
+        border-bottom: ($spacer / 5) solid;
+    }
+}
+
+h2 {
+    @extend .mb-2;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    &::first-letter {
+        border-bottom: ($spacer / 5) solid;
+    }
+}
